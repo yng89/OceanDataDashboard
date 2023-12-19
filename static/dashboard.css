@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    background-color: #113f67;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.banner h1 {
+    margin: 0;
+}
+
+.plot {
+    margin-top: 20px;
+}
+
+.plot h2 {
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.info {
+    margin-top: 40px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #113f67;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.plot div {
+    height: 300px;
+    width: 600px;
+}
+
+.plot #location-plot {
+    height: 500px;
+    width: 800px;
+}

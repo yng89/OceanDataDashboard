@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Data Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body>
+
+    <div class="banner">
+        <h1>SOFAR Ocean Dashboard</h1>
+    </div>
+
+    <div>
+        <p style="text-align: center;">
+            <a href="#humidity-plot">Humidity</a> |
+            <a href="#peak-period-plot">Peak Period</a> 
+            <a href="#significant-wave-height-plot">Significant Wave Height</a> |
+            <a href="#last-data-received">Last Data Received</a>
+            
+        </p>
+    </div>
+
+    <div class="plot">
+        <h2 id="humidity-plot">Humidity Plot</h2>
+        <div id="humidity-plot"></div>
+    </div>
+
+    <div class="plot">
+        <h2 id="peak-period-plot">Peak Period Plot</h2>
+        <div id="peak-period-plot"></div>
+    </div>
+
+    <div class="plot">
+        <h2 id="significant-wave-height-plot">Significant Wave Height Plot</h2>
+        <div id="significant-wave-height-plot"></div>
+    </div>
+
+    <div class="info">
+        <h2>Last Data Received</h2>
+        <div id="last-data-received"></div>
+        <table>
+            <tr>
+                <th>Spotter ID</th>
+                <th>Last Humidity</th>
+                <th>Last Peak Period</th>
+                <th>Last Significant Wave Height</th>
+                <th>Last Timestamp</th>
+            </tr>
+            <tr>
+                <td id="spotter-id">{{ 'SPOT-30344R' }}</td>
+                <td id="last-humidity">{{ last_humidity }}</td>
+                <td id="last-peak-period">{{ last_peak_period }}</td>
+                <td id="last-significant-wave-height">{{ last_significant_wave_height }}</td>
+                <td id="last-timestamp">{{ last_timestamp }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="plot">
+        <h2 id="location-plot">Location Map</h2>
+        <div id="location-plot"></div>
+    </div>
+    
+    <div style="display: none" id="data-humidity" data-humidity='{{ humidity_data | tojson | safe }}'></div>
+    <div style="display: none" id="data-peak-period" data-peak-period='{{ peak_period_data | tojson | safe }}'></div>
+    <div style="display: none" id="data-significant-wave-height" data-significant-wave-height='{{ significant_wave_height_data | tojson | safe }}'></div>
+    
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
+
